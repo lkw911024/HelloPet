@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="colorMainBackground">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <!-- 탭 레이아웃 관련된 색상값-->
+    <color name="colorTabSelected">#00D8FF</color>
+    <color name="colorTabUnderline">#ffffff</color>
+
+
+
 </resources>
