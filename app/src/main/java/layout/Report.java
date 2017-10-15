@@ -7,6 +7,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +26,9 @@ import adapter.ReportPagerAdapter;
  */
 public class Report extends Fragment {
 
-    public Button writeBtn;
-    public Button searchBtn;
-    public Button replaceBtn;
+    private Button writeBtn;
+    private Button searchBtn;
+    private Button replaceBtn;
 
     public Report() {
         // Required empty public constructor
