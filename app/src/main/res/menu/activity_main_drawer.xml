@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <item android:title="MY MENU">
+            <menu>
+                <item
+                    android:id="@+id/nav_profile"
+
+                    android:title="프로필" />
+                <item
+                    android:id="@+id/nav_myPet"
+
+                    android:title="나의 반려동물" />
+                <item
+                    android:id="@+id/nav_my_InterestPet"
+
+                    android:title="나의 관심동물" />
+                <item
+                    android:id="@+id/nav_registrationPet"
+
+                    android:title="동물등록 조회" />
+                <item
+                    android:id="@+id/nav_NotificationArea"
+
+                    android:title="알림 지역 설정" />
+            </menu>
+        </item>
+        <item android:title="INFORMATION">
+            <menu>
+                <item
+                    android:id="@+id/nav_notice"
+
+                    android:title="공지사항" />
+                <item
+                    android:id="@+id/nav_question"
+
+                    android:title="문의하기" />
+                <item
+                    android:id="@+id/nav_often_question"
+
+                    android:title="자주하는 질문" />
+            </menu>
+        </item>
+
+
+
+
+
+</menu>
