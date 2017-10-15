@@ -26,7 +26,6 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipe;
 
-
     public Disappear() {
         // Required empty public constructor
     }
