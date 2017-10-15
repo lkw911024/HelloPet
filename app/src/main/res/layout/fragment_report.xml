@@ -41,7 +41,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical">
 
         <android.support.design.widget.TabLayout
@@ -58,6 +58,9 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
-
+    <!--
+        두번째 탭레이아웃 과 버튼들이 겹침 현상이 발생.
+        현재는 두번째 레이아웃에 marginTop 값으로 해결했는데 더 깔끔한 방법을 찾아볼 것.
+    -->
 
 </FrameLayout>

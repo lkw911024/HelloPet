@@ -1,21 +1,13 @@
 package com.hellopet.sangji.hellopet;
 
-import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Bundle;
 
 import adapter.HelloPagerAdapter;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,87 +22,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TabLayout mainTab = (TabLayout) findViewById(R.id.main_tab);
         mainTab.setupWithViewPager(mainViewPager);
 
-        // 네비게이션 바
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    // 여기가 마이메뉴에서 각 메뉴 클릭하는 곳인듯
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        // 나중에 스위치 케이스로 바꿀것
-        Log.i("TEST","@@@@@@@@@@@@@@@@@@@@@@@@@@@@id = " + id);
-
-        // MY MENU
-        if (id == R.id.nav_profile) {
-            Log.i("TEST","프로필 눌렀다");
-        } else if (id == R.id.nav_myPet) {
-            Log.i("TEST","마이펫 눌렀다");
-        } else if (id == R.id.nav_my_InterestPet) {
-            Log.i("TEST","나의 관심동물 눌렀다");
-        } else if (id == R.id.nav_registrationPet) {
-            Log.i("TEST","동물등록 조회 눌렀다");
-        } else if (id == R.id.nav_NotificationArea) {
-            Log.i("TEST","알림 지역 설정 눌렀다");
-        }
-        // INFORMATION
-        else if (id == R.id.nav_notice) {
-            Log.i("TEST","공지사항 눌렀다");
-        }
-        else if (id == R.id.nav_question) {
-            Log.i("TEST","문의하기 눌렀다");
-        }
-        else if (id == R.id.nav_often_question) {
-            Log.i("TEST","자주하는 질문 눌렀다");
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
