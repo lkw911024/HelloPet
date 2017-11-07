@@ -12,6 +12,7 @@
     <color name="colorTabSelected">#00D8FF</color>
     <color name="colorTabUnderline">#ffffff</color>
 
-
+    <!-- 버튼 색 -->
+    <color name="colorButton">#80c575</color>
 
 </resources>

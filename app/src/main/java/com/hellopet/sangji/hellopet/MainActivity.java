@@ -1,5 +1,6 @@
 package com.hellopet.sangji.hellopet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -87,8 +88,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
             // MY MENU
             case R.id.nav_profile:
                 Log.i("TEST","프로필 눌렀다");
+                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
                 break;
-            case R.id.nav_myPet:
+            case R.id.nav_pet:
                 Log.i("TEST","마이펫 눌렀다");
                 break;
             case R.id.nav_my_InterestPet:
@@ -112,32 +114,11 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 Log.i("TEST","자주하는 질문 눌렀다");
                 break;
         }
-        /*
-        if (id == R.id.nav_profile) {
-            Log.i("TEST","프로필 눌렀다");
-        } else if (id == R.id.nav_myPet) {
-            Log.i("TEST","마이펫 눌렀다");
-        } else if (id == R.id.nav_my_InterestPet) {
-            Log.i("TEST","나의 관심동물 눌렀다");
-        } else if (id == R.id.nav_registrationPet) {
-            Log.i("TEST","동물등록 조회 눌렀다");
-        } else if (id == R.id.nav_NotificationArea) {
-            Log.i("TEST","알림 지역 설정 눌렀다");
-        }
-        // INFORMATION
-        else if (id == R.id.nav_notice) {
-            Log.i("TEST","공지사항 눌렀다");
-        }
-        else if (id == R.id.nav_question) {
-            Log.i("TEST","문의하기 눌렀다");
-        }
-        else if (id == R.id.nav_often_question) {
-            Log.i("TEST","자주하는 질문 눌렀다");
-        }
-        */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
+        // 이 부분은 마이 메뉴에서 다른 엑티비티로 넘어갔을때 마이메뉴가 꺼지는 것을 설정하는 부분인듯.
+        //drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
