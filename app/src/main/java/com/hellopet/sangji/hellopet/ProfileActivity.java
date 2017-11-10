@@ -49,8 +49,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.profile_save_btn:
                 Log.i("save_btn","저장 버튼이 눌렸다.");
                 memberVO = updateMemberInfo();
-                Log.i("저장된 데이터", "\n이메일 : " + memberVO.getMemEmail().toString() + "\n닉네임 :  "+ memberVO.getMemNickName().toString() +
-                "\n이름 : " + memberVO.getMemName().toString() + "\n번호 : " + memberVO.getMemPhone().toString());
+                //Log.i("저장된 데이터", "\n이메일 : " + memberVO.getMemEmail().toString() + "\n닉네임 :  "+ memberVO.getMemNickName().toString() +
+                //"\n이름 : " + memberVO.getMemName().toString() + "\n번호 : " + memberVO.getMemPhone().toString());
                 // 이후 db에 접근해 저장할 메소드 구현하면 될듯?
                 finish();
                 break;
@@ -60,28 +60,28 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     {
         MemberVO memberInfo = requestMemberInfo();
 
-        this.profile_email_et.setText(memberInfo.getMemEmail());
-        this.profile_nickName_et.setText(memberInfo.getMemNickName());
-        this.profile_name_et.setText(memberInfo.getMemName());
-        this.profile_phone_et.setText(memberInfo.getMemPhone());
+        //this.profile_email_et.setText(memberInfo.getMemEmail());
+        //this.profile_nickName_et.setText(memberInfo.getMemNickName());
+        //this.profile_name_et.setText(memberInfo.getMemName());
+        //this.profile_phone_et.setText(memberInfo.getMemPhone());
 
     }
     private MemberVO requestMemberInfo()
     {
         MemberVO memberInfo;
 
-        memberInfo = new MemberVO("zxca1520@gmail.com","꽃후니","박세훈","010-5516-1153");
+        //memberInfo = new MemberVO("zxca1520@gmail.com","꽃후니","박세훈","010-5516-1153");
 
-        return memberInfo;
+        return null;
     }
     public  MemberVO updateMemberInfo()
     {
         MemberVO updateMemberData;
         updateMemberData = new MemberVO();
-        updateMemberData.setMemEmail(profile_email_et.getText().toString());
-        updateMemberData.setMemNickName(profile_nickName_et.getText().toString());
-        updateMemberData.setMemName(profile_name_et.getText().toString());
-        updateMemberData.setMemPhone(profile_phone_et.getText().toString());
+        //updateMemberData.setMemEmail(profile_email_et.getText().toString());
+        //updateMemberData.setMemNickName(profile_nickName_et.getText().toString());
+        //updateMemberData.setMemName(profile_name_et.getText().toString());
+        //updateMemberData.setMemPhone(profile_phone_et.getText().toString());
         return updateMemberData;
     }
 }

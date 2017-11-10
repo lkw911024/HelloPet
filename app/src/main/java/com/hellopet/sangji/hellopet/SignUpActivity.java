@@ -66,8 +66,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 Log.i("signup_signup_btn","회원가입 버튼을 눌렀다.");
                 // 비밀번호랑 비밀번호 확인이랑 맞는지 안맞는지 검사하는것 아직 미구현
                 memberVO = signUpMemberInfo();
-                Log.i("저장된 데이터","\n이메일 : " + memberVO.getMemEmail() + "\n비밀번호 : " + memberVO.getMemPassword() +
-                "\n닉네임 : " + memberVO.getMemNickName() + "\n이름 : " + memberVO.getMemName() + "\n번호 : " + memberVO.getMemPhone());
+                //Log.i("저장된 데이터","\n이메일 : " + memberVO.getMemEmail() + "\n비밀번호 : " + memberVO.getMemPassword() +
+                //"\n닉네임 : " + memberVO.getMemNickName() + "\n이름 : " + memberVO.getMemName() + "\n번호 : " + memberVO.getMemPhone());
                 // 이후 db에 접근해 저장할 메소드 구현하면 될듯?
                 break;
         }
@@ -78,11 +78,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         memberInfo = new MemberVO();
 
-        memberInfo.setMemEmail(this.signup_email_et.getText().toString());
-        memberInfo.setMemPassword(this.signup_password_et.getText().toString());
-        memberInfo.setMemNickName(this.signup_nickName_et.getText().toString());
-        memberInfo.setMemName(this.signup_name_et.getText().toString());
-        memberInfo.setMemPhone(this.signup_phone_et.getText().toString());
+        //memberInfo.setMemEmail(this.signup_email_et.getText().toString());
+        //memberInfo.setMemPassword(this.signup_password_et.getText().toString());
+        //memberInfo.setMemNickName(this.signup_nickName_et.getText().toString());
+        //memberInfo.setMemName(this.signup_name_et.getText().toString());
+        //memberInfo.setMemPhone(this.signup_phone_et.getText().toString());
 
         return memberInfo;
     }
