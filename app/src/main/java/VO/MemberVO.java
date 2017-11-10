@@ -6,6 +6,7 @@ package VO;
 
 public class MemberVO {
 
+    private String memId;
     private String memEmail;
     private String memPassword;
     private String memNickName;
@@ -21,14 +22,19 @@ public class MemberVO {
         this.memName = memName;
         this.memPhone = memPhone;
     }
-    public MemberVO(String memEmail, String memPassword, String memNickName, String memName, String memPhone)
+    public MemberVO(String memId, String memEmail, String memPassword, String memNickName, String memName, String memPhone)
     {
+        this.memId = memId;
         this.memEmail = memEmail;
         this.memPassword = memPassword;
         this.memNickName = memNickName;
         this.memName = memName;
         this.memPhone = memPhone;
     }
+    public String getMemId(){return this.memId;}
+
+    public void setMemId(){this.memId = memId;}
+
     public String getMemEmail(){return this.memEmail;}
 
     public void setMemEmail(String memEmail){this.memEmail = memEmail;}
@@ -50,8 +56,15 @@ public class MemberVO {
 
     public void setMemPhone(String memPhone){this.memPhone = memPhone;}
 
-    public String toString()
-    {
-        return "";
+    @Override
+    public String toString() {
+        return "MemberVO{" +
+                "memId='" + memId + '\'' +
+                ", memEmail='" + memEmail + '\'' +
+                ", memPassword='" + memPassword + '\'' +
+                ", memNickName='" + memNickName + '\'' +
+                ", memName='" + memName + '\'' +
+                ", memPhone='" + memPhone + '\'' +
+                '}';
     }
 }

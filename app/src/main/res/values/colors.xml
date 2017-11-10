@@ -15,4 +15,5 @@
     <!-- 버튼 색 -->
     <color name="colorButton">#80c575</color>
 
+    <color name="colorTextViewBackground">#fffced</color>
 </resources>
