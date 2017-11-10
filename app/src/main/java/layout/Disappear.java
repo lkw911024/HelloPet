@@ -19,9 +19,7 @@ import java.util.ArrayList;
 import VO.SimpleReportVO;
 import adapter.ReportRecyclerAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipe;
@@ -105,4 +103,5 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
     }
     // Refresh가 시작되면 SnakBar 를 표시해주고, 0.5 초후 Refresh가 완료되도록 하였습니다.
     // setRefreshing(false) 메서드가 호출 되면 새로고침이 완료됩니다. 특정 작업이 완료되는 시점에 사용해주시면 됩니다.
+    // http://liveonthekeyboard.tistory.com/139
 }

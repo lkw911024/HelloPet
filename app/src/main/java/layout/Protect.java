@@ -19,9 +19,7 @@ import java.util.ArrayList;
 import VO.SimpleReportVO;
 import adapter.ReportRecyclerAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class Protect extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipe;
