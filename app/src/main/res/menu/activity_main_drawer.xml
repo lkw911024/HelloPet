@@ -9,7 +9,7 @@
 
                     android:title="프로필" />
                 <item
-                    android:id="@+id/nav_myPet"
+                    android:id="@+id/nav_pet"
 
                     android:title="나의 반려동물" />
                 <item
