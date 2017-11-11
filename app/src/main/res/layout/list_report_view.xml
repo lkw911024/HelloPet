@@ -18,7 +18,6 @@
     <ImageView
         android:id="@+id/item_pet_img"
         android:src="@drawable/animal_profile_somi"
-        android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:layout_width="190dp"
         android:layout_height="190dp" />
