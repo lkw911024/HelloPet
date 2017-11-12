@@ -1,9 +1,420 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.hellopet.sangji.hellopet.PetDetailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:id="@+id/petdetail_back_btn"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="반려동물"
+            android:gravity="center_vertical|center"
+            android:textSize="20dp"
+            android:textColor="#ed7d31"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/petdetail_delete_btn"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/petdetail_update_btn"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:background="@drawable/animal_profile_somi"
+                        android:id="@+id/petdetail_petImage_iv"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/colorTextViewBackground"
+                        android:gravity="center_vertical|center"
+                        android:text="동물 정보"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical|center"
+                            android:text="• 이 름 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/detailpet_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="토리"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 종 류 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_type"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="강아지"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 품 종 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_race"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="스피츠"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 성 별 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_gender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="수컷"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 나 이 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_age"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="1년 미만"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 몸무게 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_weight"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="1kg 미만"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 털 색 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_haircolor"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="샴"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 중성화 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_neutralization"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:text="x"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 특 징 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_attribute"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="키우던 아이 같음"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center_vertical|center"
+                            android:text="• 세부사항 : "
+                            android:textColor="@color/colorMenuText"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:textAlignment="textStart"/>
+
+                        <TextView
+                            android:id="@+id/petdetail_detail"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:gravity="center_vertical|"
+                            android:maxLength="500"
+                            android:text="차 앞에 앉아 있길래 불러봤더니 경계하다가 유유히 걸어서 사라졌음"
+                            android:textColor="@color/colorContentText"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+</LinearLayout>

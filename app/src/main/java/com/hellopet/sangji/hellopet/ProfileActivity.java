@@ -1,5 +1,7 @@
 package com.hellopet.sangji.hellopet;
 
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,7 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+
 import VO.MemberVO;
+import server.RequestHttpURLConnection;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -58,12 +70,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
     public void initData()
     {
-        MemberVO memberInfo = requestMemberInfo();
+        SharedPreferences pre = getSharedPreferences("memberInfo",0);
 
-        //this.profile_email_et.setText(memberInfo.getMemEmail());
-        //this.profile_nickName_et.setText(memberInfo.getMemNickName());
-        //this.profile_name_et.setText(memberInfo.getMemName());
-        //this.profile_phone_et.setText(memberInfo.getMemPhone());
+        String memberEmail = pre.getString("memberEmail",null);
+        String memberNickname = pre.getString("memberNickname",null);
+        String memberName = pre.getString("memberName",null);
+        String memberPhone = pre.getString("memberPhone",null);
+
+
+        if(memberEmail == null)
+        {
+            Log.i("공유데이터","실패");
+        }
+
+        this.profile_email_et.setText(memberEmail);
+        this.profile_nickName_et.setText(memberNickname);
+        this.profile_name_et.setText(memberName);
+        this.profile_phone_et.setText(memberPhone);
 
     }
     private MemberVO requestMemberInfo()
@@ -84,4 +107,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //updateMemberData.setMemPhone(profile_phone_et.getText().toString());
         return updateMemberData;
     }
+
+
 }

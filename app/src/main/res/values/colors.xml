@@ -16,4 +16,8 @@
     <color name="colorButton">#80c575</color>
 
     <color name="colorTextViewBackground">#fffced</color>
+
+    <!-- 글자 색 -->
+    <color name = "colorMenuText">#000000</color>
+    <color name = "colorContentText">#000000</color>
 </resources>
