@@ -1,5 +1,7 @@
 package adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hellopet.sangji.hellopet.R;
+import com.hellopet.sangji.hellopet.ViewReportActivity;
 
 import java.util.ArrayList;
 
@@ -72,6 +75,7 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
         private TextView place;
         private TextView time;
         private ImageView petImg;
+        private Context context;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -87,12 +91,19 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
             petImg = (ImageView) itemView.findViewById(R.id.item_pet_img);
 
             itemView.setOnClickListener(this);
+
+            // 세훈 추가
+            context = itemView.getContext();
+
         }
 
         @Override
         public void onClick(View v) {
 
             Toast.makeText (v.getContext(), ""+ reportId.getText(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, ViewReportActivity.class);
+            // 이제 여기에 데이터를 넘겨주는 intent.putExtra();를 사용해 데이터를 ViewReportActivity에 넘겨주면 될듯?
+            context.startActivity(intent);
 
             // 클릭시 세부 내용 화면으로 전환.
             // 클릭 이벤트를 다양하게 적용해야 하는 경우 holder에 리스너를 다는 형태로는 구현이 안될거 같음

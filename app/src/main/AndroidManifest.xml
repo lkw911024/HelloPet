@@ -39,7 +39,11 @@
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".WriteReportActivity"
+        <activity
+            android:name=".WriteReportActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewReportActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

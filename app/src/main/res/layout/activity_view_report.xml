@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hellopet.sangji.hellopet.ViewReportActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:id="@+id/viewReport_back_btn"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="상세화면"
+            android:gravity="center_vertical|center"
+            android:textSize="20dp"
+            android:textColor="#ed7d31"
+            android:textStyle="bold"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:id="@+id/viewReport_update_btn"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- 이부분은 image view인데 이것도 view pager로 해야될듯 .. 경원이가 해봤으니 잘하겠지? -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:background="@drawable/animal_profile_somi"
+                            android:id="@+id/viewReport_petImage_iv"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="bottom"
+                            android:background="#AA343434">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:visibility="visible"
+                                        android:layout_width="35dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:gravity="center_vertical|center"
+                                        android:text="실종"
+                                        android:textStyle="bold"
+                                        android:textColor="#FFFFFF"
+                                        android:background="#DF5D5D"
+                                        android:id="@+id/viewReport_stateDisappear_tv"/>
+
+                                    <TextView
+                                        android:visibility="gone"
+                                        android:layout_width="35dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:gravity="center_vertical|center"
+                                        android:text="목격"
+                                        android:textStyle="bold"
+                                        android:textColor="#FFFFFF"
+                                        android:background="#F5E320"
+                                        android:id="@+id/viewReport_stateWitness_tv"/>
+
+                                    <TextView
+                                        android:visibility="gone"
+                                        android:layout_width="35dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:gravity="center_vertical|center"
+                                        android:text="보호"
+                                        android:textStyle="bold"
+                                        android:textColor="#FFFFFF"
+                                        android:background="#3C49A1"
+                                        android:id="@+id/viewReport_stateProtect_tv"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="37dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:text="[고양이] 고양이"
+                                        android:textSize="15dp"
+                                        android:textStyle="bold"
+                                        android:textColor="#FFFFFF"
+                                        android:gravity="center_vertical"
+                                        android:layout_weight="1"
+                                        android:id="@+id/viewReport_petType_tv"/>
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="보호소 정보"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical|center"
+                        android:background="@color/colorTextViewBackground"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 기관명 : "
+                            android:gravity="center_vertical|center" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="여기가 보호소다"
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_shelterName_tv"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 연락처 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="0105345345"
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_shelterPhone_tv"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 주 소 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="강원도 원주시 우산동 상지대길 57-27"
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_shelterAdress_tv"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="동물 정보"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical|center"
+                        android:background="@color/colorTextViewBackground"/>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 이 름 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="뀨"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 성 별 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="수컷"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 나 이 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="1년 미만"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 몸무게 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="1kg 미만"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 털 색 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="샴"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 중성화 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="x"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 세부사항 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="차 앞에 앉아 있길래 불러봤더니 경계하다가 유유히 걸어서 사라졌음"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="지역 정보"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical|center"
+                        android:background="@color/colorTextViewBackground"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 날 짜 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="2017-10-18"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 장 소 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="경기도 성남시 을지대학교 건너편 길"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="50dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="신고자 정보"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical|center"
+                        android:background="@color/colorTextViewBackground"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 닉네임 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="오어아이"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:text="• 연락처 : "
+                            android:gravity="center_vertical|center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textStyle="bold"
+                            android:maxLength="500"
+                            android:text="01052201712"
+                            android:gravity="center_vertical|"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:text="전단지 만들기"
+                android:gravity="center_vertical|center"
+                android:background="#aa343434"
+                android:layout_marginRight="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:text="공 유"
+                android:gravity="center_vertical|center"
+                android:background="#aa343434"
+                android:layout_marginRight="1dp"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:text="댓 글"
+                android:gravity="center_vertical|center"
+                android:background="#aa343434"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

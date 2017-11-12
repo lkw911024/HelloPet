@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hellopet.sangji.hellopet.R;
+import com.hellopet.sangji.hellopet.ViewReportActivity;
 import com.hellopet.sangji.hellopet.WriteReportActivity;
 
 import adapter.ReportPagerAdapter;
@@ -61,6 +62,8 @@ public class Report extends Fragment {
             @Override
             public void onClick(View view){
                 Toast.makeText (getContext(), "검색 버튼", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ViewReportActivity.class);
+                startActivity(intent);
             }
         });
 
