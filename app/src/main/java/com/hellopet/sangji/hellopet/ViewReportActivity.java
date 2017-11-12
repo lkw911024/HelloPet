@@ -23,7 +23,6 @@ public class ViewReportActivity extends AppCompatActivity implements View.OnClic
 
     public void initId()
     {
-
         viewReport_back_btn = (ImageButton)findViewById(R.id.viewReport_back_btn);
         viewReport_update_btn = (ImageButton)findViewById(R.id.viewReport_update_btn);
     }
@@ -31,7 +30,6 @@ public class ViewReportActivity extends AppCompatActivity implements View.OnClic
     {
         viewReport_back_btn.setOnClickListener(this);
         viewReport_update_btn.setOnClickListener(this);
-
     }
     public void onClick(View view) {
 
