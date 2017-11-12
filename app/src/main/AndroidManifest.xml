@@ -48,11 +48,7 @@
         <activity
             android:name=".WriteReportActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PetDetailActivity"></activity>
-        <activity
-            android:name=".WriteReportActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
+        <activity android:name=".PetDetailActivity">
             android:name=".ViewReportActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
