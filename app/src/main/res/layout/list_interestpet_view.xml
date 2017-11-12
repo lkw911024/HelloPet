@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginBottom="5dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <TextView
-        android:id="@+id/item_report_id"
+        android:id="@+id/item_interestpet_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="아이디"
         android:visibility="invisible"/>
 
     <ImageView
-        android:id="@+id/item_pet_img"
+        android:id="@+id/item_interestpet_img"
         android:src="@drawable/animal_profile_somi"
         android:layout_gravity="center"
         android:layout_width="190dp"
@@ -28,14 +24,14 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/item_pet_type"
+            android:id="@+id/item_interestpet_type"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="동물 종류"/>
 
         <TextView
-            android:id="@+id/item_pet_race"
+            android:id="@+id/item_interestpet_race"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -51,14 +47,14 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/item_pet_gender"
+            android:id="@+id/item_interestpet_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="성별"/>
 
         <TextView
-            android:id="@+id/item_pet_name"
+            android:id="@+id/item_interestpet_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,28 +63,7 @@
             android:text="이름"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/item_pet_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="상세정보"/>
 
-    <TextView
-        android:id="@+id/item_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="잃어버린 시간"/>
 
-    <TextView
-        android:id="@+id/item_place"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:text="잃어버린 장소"/>
 
 </LinearLayout>
