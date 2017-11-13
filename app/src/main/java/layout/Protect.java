@@ -86,7 +86,7 @@ public class Protect extends Fragment implements SwipeRefreshLayout.OnRefreshLis
         @Override
         protected String doInBackground(String... strings) {
 
-            RequestHttpURLConnection connect = new RequestHttpURLConnection("Protect.do");
+            RequestHttpURLConnection connect = new RequestHttpURLConnection("report.do");
             HttpURLConnection conn = connect.getConn();
 
             try {

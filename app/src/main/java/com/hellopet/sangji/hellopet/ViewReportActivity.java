@@ -67,7 +67,7 @@ public class ViewReportActivity extends AppCompatActivity implements View.OnClic
         @Override
         protected String doInBackground(String... strings) {
 
-            RequestHttpURLConnection connect = new RequestHttpURLConnection("login.do");
+            RequestHttpURLConnection connect = new RequestHttpURLConnection("viewReport.do");
             HttpURLConnection conn = connect.getConn();
 
             JSONObject sendData = new JSONObject();
