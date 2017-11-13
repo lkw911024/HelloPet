@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hellopet.sangji.hellopet.R;
 import com.hellopet.sangji.hellopet.ViewReportActivity;
@@ -67,6 +66,7 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView reportId;
+        private TextView reportType;
         private TextView petType;
         private TextView petRace;
         private TextView petGender;
@@ -81,6 +81,7 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
             super(itemView);
             
             reportId = (TextView) itemView.findViewById(R.id.item_report_id);
+            reportType = (TextView)itemView.findViewById(R.id.item_reportType_id);
             petType = (TextView) itemView.findViewById(R.id.item_pet_type);
             petRace = (TextView) itemView.findViewById(R.id.item_pet_race);
             petGender = (TextView) itemView.findViewById(R.id.item_pet_gender);
@@ -100,9 +101,11 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
         @Override
         public void onClick(View v) {
 
-            Toast.makeText (v.getContext(), ""+ reportId.getText(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText (v.getContext(), ""+ reportId.getText(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(context, ViewReportActivity.class);
             // 이제 여기에 데이터를 넘겨주는 intent.putExtra();를 사용해 데이터를 ViewReportActivity에 넘겨주면 될듯?
+            intent.putExtra("reportId",reportId.getText().toString());
+            intent.putExtra("reportType", reportType.getText().toString());
             context.startActivity(intent);
 
             // 클릭시 세부 내용 화면으로 전환.

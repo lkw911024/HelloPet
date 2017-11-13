@@ -10,7 +10,7 @@ public class ProtectVO {
     private String protectType;
     private String protectPlace;
     private String protectTime;
-    private String protectWritenDate;
+    private String protectWrittenDate;
     private String protectDetails;
     private String protectPetType;
     private String protectRace;
@@ -32,12 +32,12 @@ public class ProtectVO {
     public ProtectVO() {
     }
 
-    public ProtectVO(String protectId, String protectType, String protectPlace, String protectTime, String protectWritenDate, String protectDetails, String protectPetType, String protectRace, String protectGender, String protectHairColor, String protectAttribute, String protectPetDetails, String protectNeutralization, String protectReportCnt, String protectFinish, String memberId, String memberNicName, String memberPhone, String shelterId, String shelterName, String shelterAddress, String shelterCall) {
+    public ProtectVO(String protectId, String protectType, String protectPlace, String protectTime, String protectWrittenDate, String protectDetails, String protectPetType, String protectRace, String protectGender, String protectHairColor, String protectAttribute, String protectPetDetails, String protectNeutralization, String protectReportCnt, String protectFinish, String memberId, String memberNicName, String memberPhone, String shelterId, String shelterName, String shelterAddress, String shelterCall) {
         this.protectId = protectId;
         this.protectType = protectType;
         this.protectPlace = protectPlace;
         this.protectTime = protectTime;
-        this.protectWritenDate = protectWritenDate;
+        this.protectWrittenDate = protectWrittenDate;
         this.protectDetails = protectDetails;
         this.protectPetType = protectPetType;
         this.protectRace = protectRace;
@@ -89,13 +89,11 @@ public class ProtectVO {
         this.protectTime = protectTime;
     }
 
-    public String getProtectWritenDate() {
-        return protectWritenDate;
+    public String getProtectWrittenDate() {
+        return protectWrittenDate;
     }
 
-    public void setProtectWritenDate(String protectWritenDate) {
-        this.protectWritenDate = protectWritenDate;
-    }
+    public void setProtectWrittenDate(String protectWrittenDate) {this.protectWrittenDate = protectWrittenDate;}
 
     public String getProtectDetails() {
         return protectDetails;
@@ -240,7 +238,7 @@ public class ProtectVO {
                 ", protectType='" + protectType + '\'' +
                 ", protectPlace='" + protectPlace + '\'' +
                 ", protectTime='" + protectTime + '\'' +
-                ", protectWritenDate='" + protectWritenDate + '\'' +
+                ", protectWrittenDate='" + protectWrittenDate + '\'' +
                 ", protectDetails='" + protectDetails + '\'' +
                 ", protectPetType='" + protectPetType + '\'' +
                 ", protectRace='" + protectRace + '\'' +

@@ -52,8 +52,8 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         swipe.setOnRefreshListener(this);
 
         // initData();
-        Disappear.DisappearTask disappearTaskTask = new Disappear.DisappearTask();
-        disappearTaskTask.execute();
+        Disappear.DisappearTask disappearTask = new Disappear.DisappearTask();
+        disappearTask.execute();
 
         return v;
     }
@@ -68,6 +68,17 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         return fragment;
     }
 
+    @Override
+    public void onRefresh() {
+        recyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText (getContext(), "refresh success", Toast.LENGTH_SHORT).show();
+                swipe.setRefreshing(false);
+            }
+        },500);
+    }
+
     private class DisappearTask extends AsyncTask<String, Integer, String>
     {
 
@@ -76,7 +87,6 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
 
             RequestHttpURLConnection connect = new RequestHttpURLConnection("disappear.do");
             HttpURLConnection conn = connect.getConn();
-
 
             try{
 
@@ -98,8 +108,6 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
                 // JSONObject 의 키 "list" 의 값들을 JSONArray 형태로 변환
                  JSONArray reciveArrayData = new JSONArray(wrapData.getString("list"));
 
-                 Log.i("회원가입 결과", wrapData.toString());
-
                 //출력할 데이터를 초기화 하는 부분
                 ArrayList<SimpleReportVO> reportList = new ArrayList<>();
                 reportList.clear();
@@ -112,7 +120,6 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
                      reportList.add(new SimpleReportVO(reciveData.getString("disappearId")+i,reciveData.getString("disappearType")+i,reciveData.getString("disappearPlace")+i,reciveData.getString("disappearTime")+i,
                              reciveData.getString("disappearDetails")+i,reciveData.getString("disappearPetType")+i,reciveData.getString("disappearPetRace")+i,reciveData.getString("disappearPetName")+i,
                              reciveData.getString("disappearPetGender")+i));
-                     reportList.add(new SimpleReportVO("1", "1", "경기도 광주시 송정동ㅇㅇㅇㅇㅇㅇㅇㅇㅇ", "2017-09-12", "이경원 닮음", "강아지", "스피치", "토리", "수컷"));
                  }
 
                 ReportRecyclerAdapter reportAdapter = new ReportRecyclerAdapter(reportList);
@@ -128,30 +135,7 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
 
                 reportAdapter.notifyDataSetChanged();
-                // 데이터 추가가 완료되었으면 notifyDataSetChanged() 메서드를 호출해 데이터 변경 체크를 실행한다
-                /* if (receiveData != null) {
-                     SharedPreferences pre = getSharedPreferences("memberInfo", 0);
-                     SharedPreferences.Editor editor = pre.edit();
 
-                     editor.putString("memberRes", (String) receiveData.get("res"));
-                     editor.putString("memberId", (String) receiveData.get("id"));
-                     editor.putString("memberEmail", (String) receiveData.get("email"));
-                     editor.putString("memberPWd", (String) receiveData.get("pwd"));
-                     editor.putString("memberName", (String) receiveData.get("name"));
-                     editor.putString("memberNickname", (String) receiveData.get("nickname"));
-                     editor.putString("memberPhone", (String) receiveData.get("phone"));
-
-                     editor.commit();
-
-                 }
-                 else {
-                     // 로그인 실패시 코드
-                     // Log.i("회원가입 실패", receiveData.toString());
-                     //
-                 }
-
-                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
-                */
             }
             catch (JSONException e)
             {
@@ -183,16 +167,6 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         }
     }
 
-    @Override
-    public void onRefresh() {
-        recyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText (getContext(), "refresh success", Toast.LENGTH_SHORT).show();
-                swipe.setRefreshing(false);
-            }
-        },500);
-    }
     // Refresh가 시작되면 SnakBar 를 표시해주고, 0.5 초후 Refresh가 완료되도록 하였습니다.
     // setRefreshing(false) 메서드가 호출 되면 새로고침이 완료됩니다. 특정 작업이 완료되는 시점에 사용해주시면 됩니다.
     // http://liveonthekeyboard.tistory.com/139
