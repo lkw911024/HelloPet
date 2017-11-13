@@ -74,7 +74,7 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         @Override
         protected String doInBackground(String... strings) {
 
-            RequestHttpURLConnection connect = new RequestHttpURLConnection("join.do");
+            RequestHttpURLConnection connect = new RequestHttpURLConnection("disappear.do");
             HttpURLConnection conn = connect.getConn();
 
 
@@ -110,7 +110,7 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
                      JSONObject reciveData = reciveArrayData.getJSONObject(i);
                      // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
                      reportList.add(new SimpleReportVO(reciveData.getString("disappearId")+i,reciveData.getString("disappearType")+i,reciveData.getString("disappearPlace")+i,reciveData.getString("disappearTime")+i,
-                             reciveData.getString("disappearDetails")+i,reciveData.getString("disappearPetType")+i,reciveData.getString("disappearRace")+i,reciveData.getString("disappearPetName")+i,
+                             reciveData.getString("disappearDetails")+i,reciveData.getString("disappearPetType")+i,reciveData.getString("disappearPetRace")+i,reciveData.getString("disappearPetName")+i,
                              reciveData.getString("disappearPetGender")+i));
                      reportList.add(new SimpleReportVO("1", "1", "경기도 광주시 송정동ㅇㅇㅇㅇㅇㅇㅇㅇㅇ", "2017-09-12", "이경원 닮음", "강아지", "스피치", "토리", "수컷"));
                  }
