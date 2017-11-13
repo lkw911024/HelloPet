@@ -1,5 +1,6 @@
 package com.hellopet.sangji.hellopet;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -7,8 +8,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -29,6 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView login_signup_tv;
     private EditText login_email_et;
     private EditText login_password_et;
+    private LinearLayout login_window_ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +44,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         login_signup_tv = (TextView)findViewById(R.id.login_signup_tv);
         login_email_et = (EditText)findViewById(R.id.login_email_et);
         login_password_et = (EditText)findViewById(R.id.login_password_et);
+        login_window_ll = (LinearLayout)findViewById(R.id.login_window_ll);
 
         login_login_btn.setOnClickListener(this);
         login_passwordSearch_tv.setOnClickListener(this);
         login_signup_tv.setOnClickListener(this);
+        login_window_ll.setOnClickListener(this);
 
     }
 
     public void onClick(View view)
     {
+
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(login_window_ll.getWindowToken(),0);
+
         switch (view.getId()) {
             // 창의 리스너
             case R.id.login_login_btn:

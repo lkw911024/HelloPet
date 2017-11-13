@@ -1,5 +1,6 @@
 package com.hellopet.sangji.hellopet;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -7,9 +8,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private TextView signup_tos_tv;
     private TextView signup_privacyInfo_tv;
     private Button signup_signup_btn;
+    private LinearLayout signup_window_ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +56,22 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         signup_tos_tv = (TextView)findViewById(R.id.signup_tos_tv);
         signup_privacyInfo_tv = (TextView)findViewById(R.id.signup_privacyInfo_tv);
         signup_signup_btn = (Button)findViewById(R.id.signup_signup_btn);
+        signup_window_ll = (LinearLayout)findViewById(R.id.signup_window_ll);
 
         signup_back_btn.setOnClickListener(this);
         signup_tos_tv.setOnClickListener(this);
         signup_privacyInfo_tv.setOnClickListener(this);
         signup_signup_btn.setOnClickListener(this);
+        signup_window_ll.setOnClickListener(this);
 
     }
 
     public void onClick(View view)
     {
+
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(signup_window_ll.getWindowToken(),0);
+
         switch (view.getId()) {
             // 창의 리스너
             case R.id.signup_back_btn:
@@ -117,12 +127,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
             JSONObject sendData = new JSONObject();
 
-
             try{
                 // json 객체에 보내줄 데이터 삽입
                 sendData.put("userEmail",signup_email_et.getText());
                 sendData.put("userPwd",signup_password_et.getText());
-                sendData.put("userNickName",signup_nickName_et.getText());
+                sendData.put("userNickname",signup_nickName_et.getText());
                 sendData.put("userName",signup_name_et.getText());
                 sendData.put("userPhone",signup_phone_et.getText());
 

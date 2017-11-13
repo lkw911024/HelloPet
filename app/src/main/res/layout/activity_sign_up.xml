@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hellopet.sangji.hellopet.SignUpActivity">
+    tools:context="com.hellopet.sangji.hellopet.SignUpActivity"
+    android:id="@+id/signup_window_ll">
 
 
     <LinearLayout

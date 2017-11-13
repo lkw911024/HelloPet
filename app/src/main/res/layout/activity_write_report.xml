@@ -16,11 +16,13 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp"
         android:orientation="horizontal">
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:id="@+id/writeReport_back_btn"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -30,6 +32,7 @@
             android:textSize="20dp"
             android:textColor="#ed7d31"
             android:textStyle="bold"/>
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

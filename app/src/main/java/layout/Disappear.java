@@ -1,12 +1,14 @@
 package layout;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +16,19 @@ import android.widget.Toast;
 
 import com.hellopet.sangji.hellopet.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 import VO.SimpleReportVO;
 import adapter.ReportRecyclerAdapter;
+import server.RequestHttpURLConnection;
 
 
 public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
@@ -40,7 +51,9 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         swipe = (SwipeRefreshLayout) v.findViewById(R.id.disappear_swipe);
         swipe.setOnRefreshListener(this);
 
-        initData();
+        // initData();
+        Disappear.DisappearTask disappearTaskTask = new Disappear.DisappearTask();
+        disappearTaskTask.execute();
 
         return v;
     }
@@ -55,7 +68,139 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         return fragment;
     }
 
+    private class DisappearTask extends AsyncTask<String, Integer, String>
+    {
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            RequestHttpURLConnection connect = new RequestHttpURLConnection("join.do");
+            HttpURLConnection conn = connect.getConn();
+
+
+            try{
+
+                if(conn.getResponseCode() != HttpURLConnection.HTTP_OK)
+                {
+                    Log.i("데이터 전송 결과","실패니??????????");
+                    return null;
+                }
+
+                InputStream is = conn.getInputStream();
+                BufferedReader bf = new BufferedReader(new InputStreamReader(is));
+
+                String line = bf.readLine();
+
+
+                // String 으로 들어온 값 JSONObject 로 1차 파싱
+                 JSONObject wrapData = new JSONObject(line);
+
+                // JSONObject 의 키 "list" 의 값들을 JSONArray 형태로 변환
+                 JSONArray reciveArrayData = new JSONArray(wrapData.getString("list"));
+
+                 Log.i("회원가입 결과", wrapData.toString());
+
+                //출력할 데이터를 초기화 하는 부분
+                ArrayList<SimpleReportVO> reportList = new ArrayList<>();
+                reportList.clear();
+
+                 for(int i = 0; i < reciveArrayData.length(); i++)
+                 {
+                     // Array 에서 하나의 JSONObject 를 추출
+                     JSONObject reciveData = reciveArrayData.getJSONObject(i);
+                     // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
+                     reportList.add(new SimpleReportVO(reciveData.getString("disappearId")+i,reciveData.getString("disappearType")+i,reciveData.getString("disappearPlace")+i,reciveData.getString("disappearTime")+i,
+                             reciveData.getString("disappearDetails")+i,reciveData.getString("disappearPetType")+i,reciveData.getString("disappearRace")+i,reciveData.getString("disappearPetName")+i,
+                             reciveData.getString("disappearPetGender")+i));
+                     reportList.add(new SimpleReportVO("1", "1", "경기도 광주시 송정동ㅇㅇㅇㅇㅇㅇㅇㅇㅇ", "2017-09-12", "이경원 닮음", "강아지", "스피치", "토리", "수컷"));
+                 }
+
+                ReportRecyclerAdapter reportAdapter = new ReportRecyclerAdapter(reportList);
+
+
+                // 각 Item 들이 RecyclerView 의 전체 크기를 변경하지 않는 다면
+                // setHasFixedSize() 함수를 사용해서 성능을 개선할 수 있습니다.
+                // 변경될 가능성이 있다면 false 로 , 없다면 true를 설정해주세요.
+                recyclerView.setHasFixedSize(true);
+
+                recyclerView.setAdapter(reportAdapter);
+                recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+                reportAdapter.notifyDataSetChanged();
+                // 데이터 추가가 완료되었으면 notifyDataSetChanged() 메서드를 호출해 데이터 변경 체크를 실행한다
+                /* if (receiveData != null) {
+                     SharedPreferences pre = getSharedPreferences("memberInfo", 0);
+                     SharedPreferences.Editor editor = pre.edit();
+
+                     editor.putString("memberRes", (String) receiveData.get("res"));
+                     editor.putString("memberId", (String) receiveData.get("id"));
+                     editor.putString("memberEmail", (String) receiveData.get("email"));
+                     editor.putString("memberPWd", (String) receiveData.get("pwd"));
+                     editor.putString("memberName", (String) receiveData.get("name"));
+                     editor.putString("memberNickname", (String) receiveData.get("nickname"));
+                     editor.putString("memberPhone", (String) receiveData.get("phone"));
+
+                     editor.commit();
+
+                 }
+                 else {
+                     // 로그인 실패시 코드
+                     // Log.i("회원가입 실패", receiveData.toString());
+                     //
+                 }
+
+                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
+                */
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
+            //백그라운드 스레드로 동작해야 하는 작업을 실행한다.
+            // execute메서드로 전달한 data tye이 params 인수로 전달되는데 여러개의 인수를 전달할 수 있으므로 배열 타입으로 되어 있습니다.
+            // 그래서 하나의 인수만 필요하다면 params[0]만 사용하면 됩니다.
+            // 작업 중에 publishProgress 메소드를 호출하여 작업 경과를 UI스레드로 display할 수 있으며
+            // 작업결과는 Result타입으로 리턴됩니다.
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            //doInBackground에서드의 작업 결과를 UI반영하는 역할을 담당하는 메소드입니다.
+
+
+            //doInBackground()로 부터 리턴된 값이 onPostExecute()의 매개변수로 넘어오므로 s를 출력한다.
+            //tv_outPut.setText(s);
+        }
+    }
+
+    @Override
+    public void onRefresh() {
+        recyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText (getContext(), "refresh success", Toast.LENGTH_SHORT).show();
+                swipe.setRefreshing(false);
+            }
+        },500);
+    }
+    // Refresh가 시작되면 SnakBar 를 표시해주고, 0.5 초후 Refresh가 완료되도록 하였습니다.
+    // setRefreshing(false) 메서드가 호출 되면 새로고침이 완료됩니다. 특정 작업이 완료되는 시점에 사용해주시면 됩니다.
+    // http://liveonthekeyboard.tistory.com/139
+
+
+        /*
     private void initData(){
+
 
         //출력할 데이터를 초기화 하는 부분
         ArrayList<SimpleReportVO> reportList = requestSimpleDisappearList();
@@ -90,18 +235,5 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
 
         return reportList;
     }
-
-    @Override
-    public void onRefresh() {
-        recyclerView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText (getContext(), "refresh success", Toast.LENGTH_SHORT).show();
-                swipe.setRefreshing(false);
-            }
-        },500);
-    }
-    // Refresh가 시작되면 SnakBar 를 표시해주고, 0.5 초후 Refresh가 완료되도록 하였습니다.
-    // setRefreshing(false) 메서드가 호출 되면 새로고침이 완료됩니다. 특정 작업이 완료되는 시점에 사용해주시면 됩니다.
-    // http://liveonthekeyboard.tistory.com/139
+    */
 }
