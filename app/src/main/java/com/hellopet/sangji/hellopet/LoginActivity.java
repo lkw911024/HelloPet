@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,10 +18,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.lang.reflect.Member;
 import java.net.HttpURLConnection;
 
-import VO.MemberVO;
 import server.RequestHttpURLConnection;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{

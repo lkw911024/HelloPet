@@ -99,6 +99,7 @@ public class WriteReportActivity extends AppCompatActivity implements View.OnCli
         writeReport_imageSelect1_iv = (ImageView)findViewById(R.id.writeReport_imageSelect1_iv);
         writeReport_imageSelect2_iv = (ImageView)findViewById(R.id.writeReport_imageSelect2_iv);
         writeReport_imageSelect3_iv = (ImageView)findViewById(R.id.writeReport_imageSelect3_iv);
+
     }
     public void initListener()
     {

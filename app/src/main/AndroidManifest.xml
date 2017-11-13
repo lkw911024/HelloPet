@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyANvzVy-BpfO6FDxiNEvqNxBHKuL4rl5Vs" />
+
         <activity
             android:name=".MainActivity"
             android:label="HelloPet"
@@ -23,7 +27,7 @@
         </activity>
         <activity
             android:name=".ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PetActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -50,7 +54,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PetDetailActivity">
             android:name=".ViewReportActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ImageSearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
