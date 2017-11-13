@@ -117,9 +117,9 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
                      // Array 에서 하나의 JSONObject 를 추출
                      JSONObject reciveData = reciveArrayData.getJSONObject(i);
                      // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-                     reportList.add(new SimpleReportVO(reciveData.getString("disappearId")+i,reciveData.getString("disappearType")+i,reciveData.getString("disappearPlace")+i,reciveData.getString("disappearTime")+i,
-                             reciveData.getString("disappearDetails")+i,reciveData.getString("disappearPetType")+i,reciveData.getString("disappearPetRace")+i,reciveData.getString("disappearPetName")+i,
-                             reciveData.getString("disappearPetGender")+i));
+                     reportList.add(new SimpleReportVO(reciveData.getString("disappearId"),reciveData.getString("disappearType"),reciveData.getString("disappearPlace"),reciveData.getString("disappearTime")+i,
+                             reciveData.getString("disappearDetails"),reciveData.getString("disappearPetType"),reciveData.getString("disappearPetRace"),reciveData.getString("disappearPetName"),
+                             reciveData.getString("disappearPetGender")));
                  }
 
                 ReportRecyclerAdapter reportAdapter = new ReportRecyclerAdapter(reportList);

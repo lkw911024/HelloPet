@@ -116,9 +116,9 @@ public class Protect extends Fragment implements SwipeRefreshLayout.OnRefreshLis
                     // Array 에서 하나의 JSONObject 를 추출
                     JSONObject reciveData = reciveArrayData.getJSONObject(i);
                     // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-                    reportList.add(new SimpleReportVO(reciveData.getString("reportId") + i, reciveData.getString("reportType") + i, reciveData.getString("reportPlace") + i, reciveData.getString("reportTime") + i,
-                            reciveData.getString("reportDetails") + i, reciveData.getString("reportPetType") + i, reciveData.getString("reportPetRace") + i, reciveData.getString("reportPetName") + i,
-                            reciveData.getString("reportPetGender") + i));
+                    reportList.add(new SimpleReportVO(reciveData.getString("reportId"), reciveData.getString("reportType"), reciveData.getString("reportPlace"), reciveData.getString("reportTime"),
+                            reciveData.getString("reportDetails"), reciveData.getString("reportPetType"), reciveData.getString("reportPetRace"), reciveData.getString("reportPetName"),
+                            reciveData.getString("reportPetGender")));
                 }
 
                 ReportRecyclerAdapter reportAdapter = new ReportRecyclerAdapter(reportList);
