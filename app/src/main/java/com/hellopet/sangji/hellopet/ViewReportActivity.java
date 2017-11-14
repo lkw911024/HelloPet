@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import server.RequestHttpURLConnection;
 public class ViewReportActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton viewReport_back_btn;
-    private ImageButton viewReport_update_btn;
+    private Button viewReport_update_btn;
     private TextView viewReport_stateDisappear_tv;
     private TextView viewReport_stateProtect_tv;
     private TextView viewReport_stateWitness_tv;
@@ -55,14 +56,13 @@ public class ViewReportActivity extends AppCompatActivity implements View.OnClic
         initId();
         initListener();
 
-
         ViewReportActivity.ViewReportTask viewReportTaskTask = new ViewReportActivity.ViewReportTask();
         viewReportTaskTask.execute();
     }
     public void initId()
     {
         viewReport_back_btn = (ImageButton)findViewById(R.id.viewReport_back_btn);
-        viewReport_update_btn = (ImageButton)findViewById(R.id.viewReport_update_btn);
+        viewReport_update_btn = (Button)findViewById(R.id.viewReport_update_btn);
         viewReport_stateDisappear_tv = (TextView)findViewById(R.id.viewReport_stateDisappear_tv);
         viewReport_stateProtect_tv = (TextView)findViewById(R.id.viewReport_stateProtect_tv);
         viewReport_stateWitness_tv = (TextView)findViewById(R.id.viewReport_stateWitness_tv);

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -44,7 +45,7 @@ public class WriteReportActivity extends AppCompatActivity implements View.OnCli
     private String absoultePath;
 
     private ImageButton writeReport_back_btn;
-    private ImageButton writeReport_save_btn;
+    private Button writeReport_save_btn;
     private LinearLayout writeReport_window_ll;
     private Spinner writeReport_state_sp;
     private Spinner writeReport_time_sp;
@@ -81,7 +82,7 @@ public class WriteReportActivity extends AppCompatActivity implements View.OnCli
     {
         // 아이디 값을 가져오기
         writeReport_back_btn = (ImageButton)findViewById(R.id.writeReport_back_btn);
-        writeReport_save_btn = (ImageButton)findViewById(R.id.writeReport_save_btn);
+        writeReport_save_btn = (Button)findViewById(R.id.writeReport_save_btn);
         writeReport_window_ll = (LinearLayout)findViewById(R.id.writeReport_window_ll);
         writeReport_state_sp = (Spinner)findViewById(R.id.writeReport_state_sp);
         writeReport_time_sp = (Spinner)findViewById(R.id.writeReport_time_sp);
