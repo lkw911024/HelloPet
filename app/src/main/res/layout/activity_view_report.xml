@@ -99,11 +99,11 @@
                                         android:layout_height="20dp"
                                         android:layout_marginLeft="5dp"
                                         android:gravity="center_vertical|center"
-                                        android:text="목격"
+                                        android:text="보호"
                                         android:textStyle="bold"
                                         android:textColor="#FFFFFF"
-                                        android:background="#F5E320"
-                                        android:id="@+id/viewReport_stateWitness_tv"/>
+                                        android:background="#3C49A1"
+                                        android:id="@+id/viewReport_stateProtect_tv"/>
 
                                     <TextView
                                         android:visibility="gone"
@@ -111,11 +111,11 @@
                                         android:layout_height="20dp"
                                         android:layout_marginLeft="5dp"
                                         android:gravity="center_vertical|center"
-                                        android:text="보호"
+                                        android:text="목격"
                                         android:textStyle="bold"
                                         android:textColor="#FFFFFF"
-                                        android:background="#3C49A1"
-                                        android:id="@+id/viewReport_stateProtect_tv"/>
+                                        android:background="#F5E320"
+                                        android:id="@+id/viewReport_stateWitness_tv"/>
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -254,6 +254,7 @@
                         android:background="@color/colorTextViewBackground"/>
 
                     <LinearLayout
+                        android:id="@+id/viewReport_nameTab_ll"
                         android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -277,7 +278,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="뀨"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petName_tv"/>
 
                     </LinearLayout>
 
@@ -304,7 +306,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="수컷"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petGender_tv"/>
 
                     </LinearLayout>
 
@@ -331,7 +334,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="1년 미만"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petAge_tv"/>
 
                     </LinearLayout>
 
@@ -358,7 +362,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="1kg 미만"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petWeight_tv"/>
 
                     </LinearLayout>
 
@@ -385,7 +390,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="샴"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petHairColor_tv"/>
 
                     </LinearLayout>
 
@@ -411,7 +417,8 @@
                             android:textSize="14dp"
                             android:textStyle="bold"
                             android:text="x"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petNeutralization_tv"/>
 
                     </LinearLayout>
 
@@ -438,7 +445,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="키우던 아이 같음"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petAttribute_tv"/>
 
                     </LinearLayout>
 
@@ -465,7 +473,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="차 앞에 앉아 있길래 불러봤더니 경계하다가 유유히 걸어서 사라졌음"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_petDetails_tv"/>
 
                     </LinearLayout>
 
@@ -507,7 +516,8 @@
                             android:textSize="14dp"
                             android:textStyle="bold"
                             android:text="2017-10-18"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_time_tv"/>
 
                     </LinearLayout>
 
@@ -533,7 +543,8 @@
                             android:textSize="14dp"
                             android:textStyle="bold"
                             android:text="경기도 성남시 을지대학교 건너편 길"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_place_tv"/>
 
                     </LinearLayout>
 
@@ -580,7 +591,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="오어아이"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_nickname_tv"/>
 
                     </LinearLayout>
 
@@ -607,7 +619,8 @@
                             android:textStyle="bold"
                             android:maxLength="500"
                             android:text="01052201712"
-                            android:gravity="center_vertical|"/>
+                            android:gravity="center_vertical|"
+                            android:id="@+id/viewReport_phone_tv"/>
 
                     </LinearLayout>
 

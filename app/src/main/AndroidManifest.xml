@@ -52,16 +52,13 @@
         <activity
             android:name=".WriteReportActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PetDetailActivity">
+        <activity android:name=".PetDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ViewReportActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".ImageSearchActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -154,7 +154,7 @@ public class Protect extends Fragment implements SwipeRefreshLayout.OnRefreshLis
 
 
     }
-     /*
+
     private void initData(){
 
         //출력할 데이터를 초기화 하는 부분
@@ -190,5 +190,5 @@ public class Protect extends Fragment implements SwipeRefreshLayout.OnRefreshLis
 
         return reportList;
     }
-    */
+
 }

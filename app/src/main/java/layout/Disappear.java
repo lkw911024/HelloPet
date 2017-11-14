@@ -31,7 +31,7 @@ import adapter.ReportRecyclerAdapter;
 import server.RequestHttpURLConnection;
 
 
-public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
+public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipe;
 
@@ -51,14 +51,14 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         swipe = (SwipeRefreshLayout) v.findViewById(R.id.disappear_swipe);
         swipe.setOnRefreshListener(this);
 
-        // initData();
+        //initData();
         Disappear.DisappearTask disappearTask = new Disappear.DisappearTask();
         disappearTask.execute();
 
         return v;
     }
 
-    public static Disappear newInstance(){
+    public static Disappear newInstance() {
 
         Bundle args = new Bundle();
 
@@ -73,14 +73,13 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         recyclerView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText (getContext(), "refresh success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "refresh success", Toast.LENGTH_SHORT).show();
                 swipe.setRefreshing(false);
             }
-        },500);
+        }, 500);
     }
 
-    private class DisappearTask extends AsyncTask<String, Integer, String>
-    {
+    private class DisappearTask extends AsyncTask<String, Integer, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -88,11 +87,10 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
             RequestHttpURLConnection connect = new RequestHttpURLConnection("disappear.do");
             HttpURLConnection conn = connect.getConn();
 
-            try{
+            try {
 
-                if(conn.getResponseCode() != HttpURLConnection.HTTP_OK)
-                {
-                    Log.i("데이터 전송 결과","실패니??????????");
+                if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                    Log.i("데이터 전송 결과", "실패니??????????");
                     return null;
                 }
 
@@ -103,24 +101,23 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
 
 
                 // String 으로 들어온 값 JSONObject 로 1차 파싱
-                 JSONObject wrapData = new JSONObject(line);
+                JSONObject wrapData = new JSONObject(line);
 
                 // JSONObject 의 키 "list" 의 값들을 JSONArray 형태로 변환
-                 JSONArray reciveArrayData = new JSONArray(wrapData.getString("list"));
+                JSONArray reciveArrayData = new JSONArray(wrapData.getString("list"));
 
                 //출력할 데이터를 초기화 하는 부분
                 ArrayList<SimpleReportVO> reportList = new ArrayList<>();
                 reportList.clear();
 
-                 for(int i = 0; i < reciveArrayData.length(); i++)
-                 {
-                     // Array 에서 하나의 JSONObject 를 추출
-                     JSONObject reciveData = reciveArrayData.getJSONObject(i);
-                     // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
-                     reportList.add(new SimpleReportVO(reciveData.getString("disappearId"),reciveData.getString("disappearType"),reciveData.getString("disappearPlace"),reciveData.getString("disappearTime")+i,
-                             reciveData.getString("disappearDetails"),reciveData.getString("disappearPetType"),reciveData.getString("disappearPetRace"),reciveData.getString("disappearPetName"),
-                             reciveData.getString("disappearPetGender")));
-                 }
+                for (int i = 0; i < reciveArrayData.length(); i++) {
+                    // Array 에서 하나의 JSONObject 를 추출
+                    JSONObject reciveData = reciveArrayData.getJSONObject(i);
+                    // 추출한 Object 에서 필요한 데이터를 표시할 방법을 정해서 화면에 표시
+                    reportList.add(new SimpleReportVO(reciveData.getString("disappearId"), reciveData.getString("disappearType"), reciveData.getString("disappearPlace"), reciveData.getString("disappearTime") + i,
+                            reciveData.getString("disappearDetails"), reciveData.getString("disappearPetType"), reciveData.getString("disappearPetRace"), reciveData.getString("disappearPetName"),
+                            reciveData.getString("disappearPetGender")));
+                }
 
                 ReportRecyclerAdapter reportAdapter = new ReportRecyclerAdapter(reportList);
 
@@ -131,18 +128,14 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
                 recyclerView.setHasFixedSize(true);
 
                 recyclerView.setAdapter(reportAdapter);
-                recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+                recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
 
                 reportAdapter.notifyDataSetChanged();
 
-            }
-            catch (JSONException e)
-            {
+            } catch (JSONException e) {
                 e.printStackTrace();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -172,8 +165,7 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
     // http://liveonthekeyboard.tistory.com/139
 
 
-        /*
-    private void initData(){
+    private void initData() {
 
 
         //출력할 데이터를 초기화 하는 부분
@@ -188,14 +180,14 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setAdapter(reportAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         reportAdapter.notifyDataSetChanged();
         // 데이터 추가가 완료되었으면 notifyDataSetChanged() 메서드를 호출해 데이터 변경 체크를 실행한다
     }
 
-    private ArrayList<SimpleReportVO> requestSimpleDisappearList(){
+    private ArrayList<SimpleReportVO> requestSimpleDisappearList() {
         ArrayList<SimpleReportVO> reportList = new ArrayList<SimpleReportVO>();
 
         //테스트 데이터 입력
@@ -209,5 +201,5 @@ public class Disappear extends Fragment implements SwipeRefreshLayout.OnRefreshL
 
         return reportList;
     }
-    */
 }
+

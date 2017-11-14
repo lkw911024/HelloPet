@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hellopet.sangji.hellopet.R;
@@ -42,6 +43,7 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         SimpleReportVO item = reportList.get(position);
         holder.reportId.setText(item.getReportId());
+        holder.reportType.setText(item.getReportType());
         holder.petType.setText(item.getPetType());
         holder.petRace.setText(item.getPetRace());
         holder.petGender.setText(item.getPetGender());
@@ -51,6 +53,26 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
         holder.time.setText(item.getTime());
         // 이미지 부분 추가
 
+        String reportType = item.getReportType();
+
+        if(reportType.equals("1"))
+        {
+            holder.reportType_disappear_ll.setVisibility(View.VISIBLE);
+            holder.reportType_protect_ll.setVisibility(View.GONE);
+            holder.reportType_witness_ll.setVisibility(View.GONE);
+        }
+        else if(reportType.equals("2"))
+        {
+            holder.reportType_disappear_ll.setVisibility(View.GONE);
+            holder.reportType_protect_ll.setVisibility(View.VISIBLE);
+            holder.reportType_witness_ll.setVisibility(View.GONE);
+        }
+        else if(reportType.equals("3"))
+        {
+            holder.reportType_disappear_ll.setVisibility(View.GONE);
+            holder.reportType_protect_ll.setVisibility(View.GONE);
+            holder.reportType_witness_ll.setVisibility(View.VISIBLE);
+        }
         holder.itemView.setTag(item);
 
     }
@@ -77,6 +99,10 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
         private ImageView petImg;
         private Context context;
 
+        private LinearLayout reportType_disappear_ll;
+        private LinearLayout reportType_protect_ll;
+        private LinearLayout reportType_witness_ll;
+
         public ItemViewHolder(View itemView) {
             super(itemView);
             
@@ -90,6 +116,10 @@ public class ReportRecyclerAdapter extends RecyclerView.Adapter<ReportRecyclerAd
             place = (TextView) itemView.findViewById(R.id.item_place);
             time = (TextView) itemView.findViewById(R.id.item_time);
             petImg = (ImageView) itemView.findViewById(R.id.item_pet_img);
+
+            reportType_disappear_ll = (LinearLayout)itemView.findViewById(R.id.reportType_disappear_ll);
+            reportType_protect_ll = (LinearLayout)itemView.findViewById(R.id.reportType_protect_ll);
+            reportType_witness_ll = (LinearLayout)itemView.findViewById(R.id.reportType_witness_ll);
 
             itemView.setOnClickListener(this);
 
